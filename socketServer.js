@@ -7,17 +7,20 @@ const { Op } = require('sequelize');
 
 module.exports = (httpServer) => {
   const io = socketIo(httpServer, {
-    cors: {
+ cors: {
       origin: [
         'https://localhost:3000',
         'http://localhost:3000',
-        'https://cnp2152.developer24x7.com'
+        'http://localhost:4100',
+        'https://cnp2152.developer24x7.com',
+        'https://moneytransferapp-development.up.railway.app'
       ],
-      methods: ['GET', 'POST'],
-      allowedHeaders: ['*']
-    },
-    allowEIO3: true,
-    transports: ['websocket', 'polling']
+      methods: ['GET', 'POST', 'OPTIONS', 'PATCH', 'PUT', 'DELETE'],
+      allowedHeaders: ['*'],
+      credentials: true,
+      optionsSuccessStatus: 200,
+      exposedHeaders: ['*']
+    }
   });
 
   io.use(verifySocketToken);
