@@ -91,6 +91,7 @@ module.exports = (httpServer) => {
       try {
         const roomId = [userId, receiverId].sort().join('-');
         const chat = await getOrCreateChat(userId, receiverId, roomId);
+        console.log("chatttttttt",chat)
         const newMessage = await createMessage(userId, receiverId, content, chat.id);
 
         const messageData = {
