@@ -7,7 +7,17 @@ const { Op } = require('sequelize');
 
 module.exports = (httpServer) => {
   const io = socketIo(httpServer, {
-    cors: { origin: '*', methods: ['GET', 'POST'] }
+    cors: {
+      origin: [
+        'https://localhost:3000',
+        'http://localhost:3000',
+        'https://cnp2152.developer24x7.com'
+      ],
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['*']
+    },
+    allowEIO3: true,
+    transports: ['websocket', 'polling']
   });
 
   io.use(verifySocketToken);
@@ -178,44 +188,50 @@ async function searchUserChats(query, userId) {
 }
 
 async function formatChatList(chats, userId) {
-  return Promise.all(
-    chats.map(async (chat) => {
-      const participants = chat.name.split('-');
-      const otherUserId = participants.find((id) => id != userId);
-      const otherUser = await Clients.findByPk(otherUserId);
+  try {
+    return Promise.all(
+      chats.map(async (chat) => {
+        const participants = chat.name.split('-');
+        const otherUserId = participants.find((id) => id != userId);
+        const otherUser = await Clients.findByPk(otherUserId);
 
-      return {
-        chatId: chat.id,
-        chatName: otherUser ? `${otherUser.firstName} ${otherUser.lastName}` : 'Unknown User',
-        receiverId: otherUserId,
-        chatStatus: otherUser?.chatStatus || 'offline',
-        lastSeen: otherUser?.lastSeen || null,
-        profileImage: otherUser?.profileImage || '/default-avatar.png',
-        createdAt: chat.created_at,
-        updatedAt: chat.updated_at
-      };
-    })
-  );
+        return {
+          chatId: chat.id,
+          chatName: otherUser ? `${otherUser.firstName} ${otherUser.lastName}` : 'Unknown User',
+          receiverId: otherUserId,
+          chatStatus: otherUser?.chatStatus || 'offline',
+          lastSeen: otherUser?.lastSeen || null,
+          profileImage: otherUser?.profileImage || '/default-avatar.png',
+          createdAt: chat.created_at,
+          updatedAt: chat.updated_at
+        };
+      })
+    );
+  } catch (error) {
+    console.error('Error formatting chat list:', error);
+    throw error;
+  }
 }
 
 async function getOrCreateChat(senderId, receiverId, roomId) {
-  const [user1, user2] = await Promise.all([
-    Clients.findOne({ where: { id: senderId } }),
-    Clients.findOne({ where: { id: receiverId } })
-  ]);
+  try {
+    const [user1, user2] = await Promise.all([
+      Clients.findOne({ where: { id: senderId } }),
+      Clients.findOne({ where: { id: receiverId } })
+    ]);
 
-  const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
+    const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
 
-  let chat = await Chat.findOne({ where: { name: roomId } });
-  if (!chat) {
-    chat = await Chat.create({ name: roomId, searchName });
+    let chat = await Chat.findOne({ where: { name: roomId } });
+    if (!chat) {
+      chat = await Chat.create({ name: roomId, searchName });
+    }
+
+    return chat;
+  } catch (error) {
+    console.error('Error getting or creating chat:', error);
+    throw error;
   }
-
-  if (!chat?.id) {
-    throw new Error('Failed to create or find chat');
-  }
-
-  return chat;
 }
 
 async function createMessage(senderId, receiverId, content, chatId) {
