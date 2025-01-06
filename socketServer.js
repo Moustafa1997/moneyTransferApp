@@ -1,5 +1,4 @@
 'use strict';
-
 const { Server } = require('socket.io');
 const { verifySocketToken } = require('./app/services/jwtSign');
 const setupSocketHandlers = require('./app/controllers/socket/index');
