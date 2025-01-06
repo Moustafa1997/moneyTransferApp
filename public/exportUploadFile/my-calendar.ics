@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+NAME:My Calendar
+X-WR-CALNAME:My Calendar
+BEGIN:VEVENT
+UID:a4badc32-c9e1-4ce5-b964-1f05b1e9b5e0
+SEQUENCE:0
+DTSTAMP:20230802T055008Z
+DTSTART:20230808T163000Z
+DTEND:20230808T182900Z
+SUMMARY:Meeting with Client
+LOCATION:Home3
+DESCRIPTION:Discuss project requirements and timelines.
+ORGANIZER;CN="pritams":mailto:pritams@capitalnumbers.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN="pritams":MAILTO:pritams@capitalnumbers.c
+ om
+END:VEVENT
+END:VCALENDAR

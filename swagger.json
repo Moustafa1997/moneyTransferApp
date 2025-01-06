@@ -1,0 +1,7294 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Dual Money",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://cnp2152api.developer24x7.com",
+      "variables": {}
+    },
+    {
+      "url": "http://localhost:4100",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/api/client/registerUser": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST signup User API",
+        "operationId": "POSTsignupUserAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTsignupUserAPIRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/verify-user-account": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Verify Account API",
+        "operationId": "POSTVerifyAccountAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTVerifyAccountAPIRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/loginUser": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Login API",
+        "operationId": "POSTLoginAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLoginWityTypeAPIRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/getUserProfile": {
+      "get": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "Get User Profile API",
+        "operationId": "getUserProfile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/users/getUserByEmail": {
+      "get": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "Get User By Email API",
+        "operationId": "getUserByEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/updateProfile": {
+      "put": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Update Profile Of Client API",
+        "operationId": "POSTUpdateProfileClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdateProfileClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/login": {
+      "post": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Admin Login API",
+        "operationId": "POSTAdminLoginAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLoginAPIRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/admin/forgot-password-mail": {
+      "post": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Forget Password Send Mail API",
+        "operationId": "POSTForgetPasswordSendMailAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordSendMailAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/admin/forgot-password": {
+      "post": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Forget Password Reset API",
+        "operationId": "POSTForgetPasswordResetAdminAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordResetAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/admin/dashboard": {
+      "get": {
+        "tags": ["Admin Dashboard"],
+        "summary": "GET Admin Dashboard API",
+        "operationId": "GETAdminDashboardAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/profile": {
+      "get": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Get Admin and Operator Auth API",
+        "operationId": "GETAdminProfileAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/update-profile": {
+      "put": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Update Profile Of Admin API",
+        "operationId": "POSTUpdateProfileAdminAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdateProfileAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/update-password": {
+      "put": {
+        "tags": ["Admin and Operator Auth"],
+        "summary": "POST Change Password Admin API",
+        "operationId": "POSTUpdatePasswordAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdatePasswordAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-clients/{roleId}?page=1&size=5&search=something": {
+      "get": {
+        "tags": ["Client Management By Admin"],
+        "summary": "Get Users By Role Id API",
+        "operationId": "GETAllUsersByRoleAPI",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of Role Id (e.g., 4, 5, 6, 7)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/get-all-clients/": {
+      "get": {
+        "tags": ["Client Management By Admin"],
+        "summary": "Get All Users API",
+        "operationId": "GETAllUsersAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "enum": ["active", "suspended"],
+            "schema": {
+              "type": "string",
+              "default": "active"
+            },
+            "description": "Status of users"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "enum": ["ASC", "DESC"],
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "Order of users"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/get-client-by-id/{id}": {
+      "get": {
+        "tags": ["Client Management By Admin"],
+        "summary": "Get Users By Id API",
+        "operationId": "GETUserByIdAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/add-client": {
+      "post": {
+        "tags": ["Client Management By Admin"],
+        "summary": "POST Add User API",
+        "operationId": "POSTAddUserAdminAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAddUserAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/update-client/{id}": {
+      "put": {
+        "tags": ["Client Management By Admin"],
+        "summary": "POST Update User API",
+        "operationId": "POSTUserUpdateAdminAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUserUpdateAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/delete-client/{id}": {
+      "delete": {
+        "tags": ["Client Management By Admin"],
+        "summary": "POST Delete Client API",
+        "operationId": "POSTUserDeleteAdminAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-transactions-by-user-id/{userId}": {
+      "get": {
+        "tags": ["Client Management By Admin"],
+        "summary": "GET Transactions By User Id API",
+        "operationId": "GETTransactionsByUserIdAPI",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "enum": ["pending", "completed", "failed"],
+            "schema": {
+              "type": "string",
+              "default": "pending"
+            },
+            "description": "Status of transactions"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": true,
+            "enum": ["ASC", "DESC"],
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "Order of transactions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/reset-password": {
+      "put": {
+        "tags": ["Client Management By Admin"],
+        "summary": "POST User Password Update API",
+        "operationId": "POSTUserPasswordUpdateAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUserPasswordUpdateAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/updateProfileImage": {
+      "put": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "PUT Update Profile Image API",
+        "operationId": "PUTUpdateProfileImageAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateProfileImageAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/forgetPassword": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Forget Password Send Mail API",
+        "operationId": "POSTForgetPasswordSendMailAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordSendMailAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/resetPassword": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Forget Password Reset Password API",
+        "operationId": "POSTForgetPasswordResetAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordResetAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/logout": {
+      "get": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "GET Logout API",
+        "operationId": "GETLogoutAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/changePassword": {
+      "post": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "POST Update Password API",
+        "operationId": "POSTUpdatePasswordAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdatePasswordAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/get-nearby-associate": {
+      "post": {
+        "tags": ["Accounts Listing"],
+        "summary": "GET Nearby Associates API",
+        "operationId": "GETNearbyAssociateAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLocationPointsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/agency/get-nearby-associate": {
+      "post": {
+        "tags": ["Accounts Listing"],
+        "summary": "GET Nearby Associates API to agencies",
+        "operationId": "GETNearbyAssociateAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLocationPointsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/changeRole": {
+      "put": {
+        "tags": ["Client and Associate Auth"],
+        "summary": "PUT Change Role of Client API",
+        "operationId": "PUTChangeRoleOfClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTChangeRoleOfClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/get-nearby-agency": {
+      "post": {
+        "tags": ["Accounts Listing"],
+        "summary": "GET Nearby Agency API",
+        "operationId": "GETNearbyAgencyAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLocationPointsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/agency/get-nearby-agency": {
+      "post": {
+        "tags": ["Accounts Listing"],
+        "summary": "GET Nearby Agency API",
+        "operationId": "GETNearbyAgencyAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLocationPointsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/get-search-client-accounts?search=": {
+      "get": {
+        "tags": ["Accounts Listing"],
+        "summary": "GET Search Client Accounts API",
+        "operationId": "GETSearchClientAccountsAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "Search by first name, last name, email, or phone"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/add-money-from-bank": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Add money to wallet API (By Associate or Agency)",
+        "operationId": "POSTAddToWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAddToWalletAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/withdrawal-from-wallet": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Withdraw money from wallet API",
+        "operationId": "POSTWithdrawWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTWithdrawWalletAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/my-wallet": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get Wallet Profile API",
+        "operationId": "getWalletProfile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/all-transactions?page=1&size=5": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get All Transactions API",
+        "operationId": "POSTAllTransactionsAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The transaction id number"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "documentTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "1"
+            },
+            "description": "The document type Id"
+          },
+          {
+            "name": "documentNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "AXXXXX"
+            },
+            "description": "Document Number"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "pending"
+            },
+            "description": "status(pending/completed/failed)"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "AXXXXX"
+            },
+            "description": "Search by unique code/documentNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/recharge-transactions": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get Recharge Transactions API",
+        "operationId": "POSTRechargeTransactionsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "pending"
+            },
+            "enum": ["pending", "completed", "failed", "all"],
+            "description": "The status of the transactions"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "The order of the transactions",
+            "enum": ["ASC", "DESC"]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "The search of the transactions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/transfer-transactions": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get Transfer Transactions API",
+        "operationId": "POSTTransferTransactionsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "pending"
+            },
+            "enum": ["pending", "completed", "failed", "all"],
+            "description": "The status of the transactions"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "The order of the transactions",
+            "enum": ["ASC", "DESC"]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "The search of the transactions"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "enum": ["sent", "received"],
+            "description": "The type of the transactions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/send-money": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money from wallet API",
+        "operationId": "POSTSendMoneyAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendMoneyAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/send-money-to-unregisterd-client": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money to unregistered client API",
+        "operationId": "POSTSendMoneyToUnregisteredClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendMoneyToUnregisteredClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/unregister-to-unregister": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money from unregistered client to unregistered client API",
+        "operationId": "POSTSendMoneyFromUnregisteredClientToUnregisteredClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendMoneyFromUnregisteredClientToUnregisteredClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/register-to-unregister": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money from registered client to unregistered client API",
+        "operationId": "POSTSendMoneyFromRegisteredClientToUnregisteredClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendMoneyFromRegisteredClientToUnregisteredClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/register-to-register-online": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money from registered client to registered client online API",
+        "operationId": "POSTSendMoneyFromRegisteredClientToRegisteredClientOnlineAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTMoneyTransferRegisteredToRegisteredOnlineAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/register-to-register-offline": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Send money from registered client to registered client offline API",
+        "operationId": "POSTSendMoneyFromRegisteredClientToRegisteredClientOfflineAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTMoneyTransferRegisteredToRegisteredOfflineAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/transactions": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "GET Transactions for Associate API",
+        "operationId": "GETTransactionsForAssociateAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "The order of the transactions",
+            "enum": ["ASC", "DESC"]
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "The search of the transactions"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "all"
+            },
+            "enum": ["all", "sent", "received", "recharge"],
+            "description": "The type of the transactions"
+          },
+          {
+            "name": "cityId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/validate-cash-transaction": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Verify Cash Transaction API",
+        "operationId": "POSTVerifyCashTransactionAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTValidateCashTransactionAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/recharge-client-wallet": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Recharge Client Wallet API",
+        "operationId": "POSTRechargeClientWalletByAssociateAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTRechargeClientWalletByAssociateAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/transaction": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Transactions Client Wallet to wallet API",
+        "operationId": "POSTTransactionClientWalletToWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTTransactionClientWalletToWalletAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/transaction/{id}": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get Transaction By Id API",
+        "operationId": "GETUserByIdAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of transaction Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/send-invitation": {
+      "post": {
+        "tags": ["Invitation"],
+        "summary": "POST Send invitation API",
+        "operationId": "POSTSendInvitationAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendInvitationAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/invitations": {
+      "get": {
+        "tags": ["Invitation"],
+        "summary": "Get All Invitations API",
+        "operationId": "POSTAllInvitationsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "pending"
+            },
+            "enum": ["pending", "accepted", "rejected"],
+            "description": "The status of the transactions"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "description": "The search of the transactions"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            },
+            "description": "The order of the transactions",
+            "enum": ["ASC", "DESC"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/frontend/cash-receive": {
+      "post": {
+        "tags": ["Cash Transactions"],
+        "summary": "POST Cash Receive From Client API (By Associate or Agency)",
+        "operationId": "POSTCashReceiveFromClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTCashReceiveFromClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/frontend/cash-request": {
+      "post": {
+        "tags": ["Cash Transactions"],
+        "summary": "POST Cash Request By Client API",
+        "operationId": "POSTCashRequestByClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTCashRequestByClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/frontend/approve-cash-request": {
+      "post": {
+        "tags": ["Cash Transactions"],
+        "summary": "POST Approve Request API (By Associate or Agency)",
+        "operationId": "POSTApproveRequestAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTApproveRequestAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/frontend/cash-requests": {
+      "get": {
+        "tags": ["Cash Transactions"],
+        "summary": "Get Cash Transactions API",
+        "operationId": "GETCashTransactionsAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/frontend/send-money-to-unregisterd-client": {
+      "post": {
+        "tags": ["Cash Transactions"],
+        "summary": "POST Send Money To Unregistered Client API",
+        "operationId": "POSTSendToUnregisteredClientAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTSendToUnregisteredClientAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/file-upload/{type}": {
+      "post": {
+        "tags": ["Common"],
+        "summary": "POST Image Upload API",
+        "operationId": "POSTmageUploadAPI",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of file being uploaded (e.g., 'profile-upload', 'id-document', 'digital-signature', 'uploaded-signature')"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/POSTmageUploadAPI"
+              }
+            }
+          },
+
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "deprecated": false
+        }
+      }
+    },
+    "/api/role/getAllRoles": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Rolls API",
+        "operationId": "GETRoleAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/role/getAdminRoles": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Admin Rolls API",
+        "operationId": "GETAdminRoleAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/role/getClientRoles": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Client Rolls API",
+        "operationId": "GETClientRoleAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/send-otp": {
+      "post": {
+        "tags": ["Common"],
+        "summary": "POST Send OTP API",
+        "operationId": "POSTSendOtpAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/POSTSendOtpAPI"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/verify-otp": {
+      "post": {
+        "tags": ["Common"],
+        "summary": "POST Verify OTP API",
+        "operationId": "POSTVerifyOtpAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/POSTVerifyOtpAPI"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-permissions": {
+      "get": {
+        "tags": ["Permission Management By Admin"],
+        "summary": "Get Permissions API",
+        "operationId": "GETAdminPermissionsAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/update-permissions": {
+      "put": {
+        "tags": ["Permission Management By Admin"],
+        "summary": "PUT Update User API",
+        "operationId": "PUTUpdatePermissionAdminAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTAdminPermissionUpdateAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-recharges": {
+      "get": {
+        "tags": ["Recharge Management By Admin"],
+        "summary": "GET Recharge Management API",
+        "operationId": "GETRechargeManagementAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "enum": ["completed", "pending", "failed", "all"],
+            "schema": {
+              "type": "string",
+              "default": "all"
+            },
+            "description": "Status of recharge (e.g., 'completed', 'pending', 'failed', 'all')"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": true,
+            "enum": ["ASC", "DESC"],
+            "schema": {
+              "type": "string"
+            },
+            "description": "Order of recharge (e.g., 'ASC', 'DESC')"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-admins/{roleId}?page=1&size=5&search=something": {
+      "get": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "Get Admins By Role Id API",
+        "operationId": "GETAllAdminsByRoleAPI",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of Role Id (e.g.,1, 2, 3, 4)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/get-all-admins/?page=1&size=5&search=something": {
+      "get": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "Get All Admins API",
+        "operationId": "GETAllAdminsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "description": "The page number for pagination"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "description": "The number of items per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "something"
+            },
+            "description": "Searching by name and email"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/get-admin-by-id/{id}": {
+      "get": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "Get Admins By Id API",
+        "operationId": "GETAdminByIdAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/add-admin": {
+      "post": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "POST Add Admin API",
+        "operationId": "POSTAddAdminAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAddAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/update-admin/{id}": {
+      "put": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "POST Update Admin API",
+        "operationId": "POSTAdminUpdateAdminAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAdminUpdateAdminAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/delete-admin/{id}": {
+      "delete": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "POST Delete Admin API",
+        "operationId": "POSTAdminDeleteAdminAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/reset-password-admin": {
+      "put": {
+        "tags": ["Admin Accounts Management By Admin"],
+        "summary": "POST Admin Password Update API",
+        "operationId": "POSTAdminPasswordUpdateAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUserPasswordUpdateAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/get-dashboard-data": {
+      "post": {
+        "tags": ["Client Dashboard"],
+        "summary": "POST Get Client Dashboard Data API",
+        "operationId": "POSTGetClientDashboardDataAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTGetClientDashboardChartDataAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/client/get-transactions-for-dashboard": {
+      "post": {
+        "tags": ["Client Dashboard"],
+        "summary": "POST Get Transactions For Dashboard API",
+        "operationId": "POSTGetTransactionsForDashboardAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTGetClientDashboardDataAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/get-default-commissions": {
+      "get": {
+        "tags": ["Commission Management By Admin"],
+        "summary": "GET Get Default Commissions API",
+        "operationId": "GETGetDefaultCommissionsAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/update-default-commissions": {
+      "put": {
+        "tags": ["Commission Management By Admin"],
+        "summary": "PUT Update Default Commissions API",
+        "operationId": "PUTUpdateDefaultCommissionsAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateDefaultCommissionsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-commissions-of-agencies": {
+      "get": {
+        "tags": ["Commission Management By Admin"],
+        "summary": "GET Get Commissions Of Agencies API",
+        "operationId": "GETGetCommissionsOfAgenciesAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/update-agency-commissions": {
+      "put": {
+        "tags": ["Commission Management By Admin"],
+        "summary": "PUT Update Commissions Of Agencies API",
+        "operationId": "PUTUpdateAgencyCommissionsAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateAgencyCommissionsAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/change-to-default-agency": {
+      "put": {
+        "tags": ["Commission Management By Admin"],
+        "summary": "PUT Change To Default Agency API",
+        "operationId": "PUTChangeToDefaultAgencyAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTChangeToDefaultAgencyAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-currency-exchange": {
+      "get": {
+        "tags": ["Currency Exchange Management By Admin"],
+        "summary": "GET Get Currency Exchange API",
+        "operationId": "GETGetCurrencyExchangeAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/add-new-currency-exchange": {
+      "post": {
+        "tags": ["Currency Exchange Management By Admin"],
+        "summary": "POST Add New Currency Exchange API",
+        "operationId": "POSTAddNewCurrencyExchangeAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAddNewCurrencyExchangeAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/update-currency-exchange": {
+      "put": {
+        "tags": ["Currency Exchange Management By Admin"],
+        "summary": "PUT Update Currency Exchange API",
+        "operationId": "PUTUpdateCurrencyExchangeAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdateCurrencyExchangeAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/delete-currency-exchange": {
+      "delete": {
+        "tags": ["Currency Exchange Management By Admin"],
+        "summary": "DELETE Delete Currency Exchange API",
+        "operationId": "DELETEDeleteCurrencyExchangeAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTDeleteCurrencyExchangeAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-associate-locations": {
+      "get": {
+        "tags": ["Geo Location Management By Admin"],
+        "summary": "GET Get Associate Locations API",
+        "operationId": "GETGetAssociateLocationsAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/update-associate-location/{id}": {
+      "put": {
+        "tags": ["Geo Location Management By Admin"],
+        "summary": "PUT Update Associate Location API",
+        "operationId": "PUTUpdateAssociateLocationAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateLocationAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/get-agency-locations": {
+      "get": {
+        "tags": ["Geo Location Management By Admin"],
+        "summary": "GET Get Agency Locations API",
+        "operationId": "GETGetAgencyLocationsAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/admin/update-agency-location/{id}": {
+      "put": {
+        "tags": ["Geo Location Management By Admin"],
+        "summary": "PUT Update Agency Location API",
+        "operationId": "PUTUpdateAgencyLocationAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateLocationAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/registerUser": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Register User API",
+        "operationId": "POSTRegisterUserAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAgencyRegisterAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/agency/loginUser": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Login API",
+        "operationId": "POSTLoginAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTLoginAPIRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/agency/verify-user-account": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Verify Account API",
+        "operationId": "POSTVerifyAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTVerifyAccountAPIRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/agency/forgetPassword": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Forget Password API",
+        "operationId": "POSTForgetPasswordAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordSendMailAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/agency/resetPassword": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Reset Password API",
+        "operationId": "POSTResetPasswordAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTForgetPasswordResetAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/agency/update-profile": {
+      "put": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "PUT Update Profile API",
+        "operationId": "PUTUpdateProfileAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAgencyUpdateAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/get-profile": {
+      "get": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "GET Get Profile API",
+        "operationId": "GETGetProfileAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/change-password": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Change Password API",
+        "operationId": "POSTChangePasswordAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTUpdatePasswordAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/create-teller-account": {
+      "post": {
+        "tags": ["Agency Teller Account"],
+        "summary": "POST Create Teller Account API",
+        "operationId": "POSTCreateTellerAccountAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAgencyTellerAccountAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/update-teller-accounts/{id}": {
+      "put": {
+        "tags": ["Agency Teller Account"],
+        "summary": "POST Update Teller API",
+        "operationId": "PUTAgencyTellerAccountAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of User Id (e.g., 4, 5, 6, 7)"
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTAgencyTellerAccountAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/list-teller-accounts": {
+      "get": {
+        "tags": ["Agency Teller Account"],
+        "summary": "GET List Teller Accounts API",
+        "operationId": "GETListTellerAccountsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page size"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "status(blocked/unblocked) query"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "enum": ["ASC", "DESC"],
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Order direction"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/view-teller-account/:id": {
+      "get": {
+        "tags": ["Agency Teller Account"],
+        "summary": "GET View Teller Account API",
+        "operationId": "GETViewTellerAccountAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Teller account ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/my-wallet": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "GET My Wallet API",
+        "operationId": "GETMyWalletAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/add-money-from-bank": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Add Money From Bank API",
+        "operationId": "POSTAddMoneyFromBankAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTAddToWalletAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/recharge-client-wallet": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Recharge Client Wallet API",
+        "operationId": "POSTRechargeClientWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTRechargeClientWalletAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/recharge-transactions-clients": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "GET Recharge Transactions Clients API",
+        "operationId": "GETRechargeTransactionsClientsAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page size"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "enum": ["ASC", "DESC"],
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Order direction"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/validate-cash-transaction": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Validate Cash Transaction API",
+        "operationId": "POSTValidateCashTransactionAPI",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTValidateCashTransactionAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/transaction": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Transactions Agency Wallet to wallet API",
+        "operationId": "POSTTransactionAgencyWalletToWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTTransactionAgencyWalletToWalletAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/agency/withdraw": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "POST Transactions withdraw Pending Transaction to wallet API",
+        "operationId": "POSTTransactionWithdrawPendingTransactionToWalletAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTTransactionWithdrawPendingTransactionToWalletAPI"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/agency/get-search-client-accounts": {
+      "get": {
+        "tags": ["Account Search Of Clients (Agency)"],
+        "summary": "GET Search Client Accounts API",
+        "operationId": "GETSearchClientAccountsAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/update-profile-image": {
+      "post": {
+        "tags": ["Agency and Teller Auth"],
+        "summary": "POST Update Profile Image API",
+        "operationId": "POSTUpdateProfileImageAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateProfileImageAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/get-dashboard-data": {
+      "post": {
+        "tags": ["Agency Dashboard"],
+        "summary": "POST Get Dashboard Data API",
+        "operationId": "POSTGetDashboardDataAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTGetClientDashboardChartDataAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/get-transactions-for-dashboard": {
+      "post": {
+        "tags": ["Agency Dashboard"],
+        "summary": "POST Get Transactions For Dashboard API",
+        "operationId": "POSTGetTransactionsForDashboardAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTGetClientDashboardDataAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/update-availability": {
+      "put": {
+        "tags": ["Agency Availability"],
+        "summary": "PUT Update Availability API",
+        "operationId": "PUTUpdateAvailabilityAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateAvailabilityAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/get-availability": {
+      "get": {
+        "tags": ["Agency Availability"],
+        "summary": "GET Get Availability API",
+        "operationId": "GETGetAvailabilityAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/country-code": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Country Code API",
+        "operationId": "GETCountryCodeAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/city-by-state/{stateId}": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET City By State API",
+        "operationId": "GETCityByStateAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/search-city-state-country": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Search City State Country API",
+        "operationId": "GETSearchCityStateCountryAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/state-by-country/{countryId}": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET State By Country API",
+        "operationId": "GETStateByCountryAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/client/update-availability": {
+      "put": {
+        "tags": ["Client Availability"],
+        "summary": "PUT Update Availability API",
+        "operationId": "PUTUpdateAvailabilityAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateAvailabilityAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/get-availability": {
+      "get": {
+        "tags": ["Client Availability"],
+        "summary": "GET Get Availability API",
+        "operationId": "GETGetAvailabilityAPI",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/currency-exchange": {
+      "get": {
+        "tags": ["Common"],
+        "summary": "GET Currency Exchange API",
+        "operationId": "GETCurrencyExchangeAPI",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/create-document-type": {
+      "post": {
+        "tags": ["Documents"],
+        "summary": "POST Create Document Type API",
+        "operationId": "POSTCreateDocumentTypeAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/POSTClientDocumentTypeAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get-all-document-type": {
+      "get": {
+        "tags": ["Documents"],
+        "summary": "GET List DocumentType API",
+        "operationId": "GETListDocumentTypeAPI",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Page size"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "enum": ["ASC", "DESC"],
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Order direction"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/view-document-type/:id": {
+      "get": {
+        "tags": ["Documents"],
+        "summary": "GET View Document Type API",
+        "operationId": "GETViewDocumentTypeAPI",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Teller account ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/update-document-type": {
+      "put": {
+        "tags": ["Documents"],
+        "summary": "PUT Update document-type API",
+        "operationId": "PUTUpdateDocumentTypeAPI",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PUTUpdateDocumentTypeAPI"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+
+    "/api/client/recharge-wallet-from-bank": {
+      "post": {
+        "summary": "Add funds to the wallet from bank transactions.",
+        "tags": ["bankTransaction"],
+
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "integer",
+                    "description": "ID of the client.",
+                    "example": 123
+                  },
+                  "agencyId": {
+                    "type": "integer",
+                    "description": "ID of the agency (optional).",
+                    "example": 456
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the transaction.",
+                    "example": "Payment for service"
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "description": "Purpose of the transaction.",
+                    "example": "Recharge wallet"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "Amount to be added to the wallet.",
+                    "example": 10000
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Currency of the transaction.",
+                    "example": "usd"
+                  }
+                },
+                "required": ["amount"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Funds added to wallet successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Funds added to wallet successfully"
+                    },
+                    "wallet": {
+                      "type": "object",
+                      "properties": {
+                        "clientId": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "balance": {
+                          "type": "integer",
+                          "example": 20000
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payment failed or is pending. Status is not 'Succeeded' (1).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment failed or is pending"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Wallet not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Wallet not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/client/confirm-wallet-recharge": {
+      "post": {
+        "summary": "Confirm and verify wallet recharge.",
+        "tags": ["bankTransaction"],
+
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paymentIntentId": {
+                    "type": "string",
+                    "description": "Stripe PaymentIntent ID.",
+                    "example": "pi_1234567890abcdef"
+                  }
+                },
+                "required": ["paymentIntentId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment verified and wallet updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment successful and wallet updated"
+                    },
+                    "wallet": {
+                      "type": "object",
+                      "properties": {
+                        "clientId": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "balance": {
+                          "type": "integer",
+                          "example": 20000
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payment not successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment not successful"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction or Wallet not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/recharge-wallet-from-bank": {
+      "post": {
+        "summary": "Add funds to the wallet from bank transactions.",
+        "tags": ["bankTransaction"],
+
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "integer",
+                    "description": "ID of the client.",
+                    "example": 123
+                  },
+                  "agencyId": {
+                    "type": "integer",
+                    "description": "ID of the agency (optional).",
+                    "example": 456
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the transaction.",
+                    "example": "Payment for service"
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "description": "Purpose of the transaction.",
+                    "example": "Recharge wallet"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "Amount to be added to the wallet.",
+                    "example": 10000
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Currency of the transaction.",
+                    "example": "usd"
+                  }
+                },
+                "required": ["amount"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Funds added to wallet successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Funds added to wallet successfully"
+                    },
+                    "wallet": {
+                      "type": "object",
+                      "properties": {
+                        "clientId": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "balance": {
+                          "type": "integer",
+                          "example": 20000
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payment failed or is pending. Status is not 'Succeeded' (1).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment failed or is pending"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Wallet not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Wallet not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/agency/confirm-wallet-recharge": {
+      "post": {
+        "summary": "Confirm and verify wallet recharge.",
+        "tags": ["bankTransaction"],
+
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paymentIntentId": {
+                    "type": "string",
+                    "description": "Stripe PaymentIntent ID.",
+                    "example": "pi_1234567890abcdef"
+                  }
+                },
+                "required": ["paymentIntentId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment verified and wallet updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment successful and wallet updated"
+                    },
+                    "wallet": {
+                      "type": "object",
+                      "properties": {
+                        "clientId": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "balance": {
+                          "type": "integer",
+                          "example": 20000
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payment not successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment not successful"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction or Wallet not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "POSTGetClientDashboardDataAPI": {
+        "title": "POSTGetClientDashboardDataAPI",
+        "required": ["order", "status"],
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "order": "ASC",
+          "status": "pending",
+          "search": "something"
+        }
+      },
+      "POSTGetClientDashboardChartDataAPI": {
+        "title": "POSTGetClientDashboardChartDataAPI",
+        "required": ["chartDuration"],
+        "type": "object",
+        "properties": {
+          "chartDuration": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "chartDuration": "past-12"
+        }
+      },
+      "POSTLoginAPIRequest": {
+        "title": "POSTLoginAPIRequest",
+        "required": ["email", "password"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "admin@capitalnumbers.com",
+          "password": "1234567890"
+        }
+      },
+      "POSTLoginWityTypeAPIRequest": {
+        "title": "POSTLoginAPIRequest",
+        "required": ["email", "password", "type"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["normal", "associate"]
+          }
+        },
+        "example": {
+          "email": "admin@capitalnumbers.com",
+          "password": "1234567890",
+          "type": "normal"
+        }
+      },
+      "POSTVerifyAccountAPIRequest": {
+        "title": "POSTVerifyAccountAPIRequest",
+        "required": ["token"],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjMsImlhdCI6MTcyNTUxOTA1OSwiZXhwIjoxNzI1NjA1NDU5fQ.EXeZYjZsG_liKDAda8cYYYRyL5Gn4hj75EVoGYFHZ26Dqf497Lz-1ssMSnngFimSOD74sEcprD5DuviVPICxgqfZr5fT5f3KfcIqyIWHdwatEep5d88gcIBi7YMFXvh5Zhpvtl-jCcGyjM2UJyc3UPVBttKpseHZKu1kPBrfEykPipmTr7Mfs_OyvDTHW8AK0Epa-f8SaY0vSYGcq5QFaaM3lB_P8ZKas5OJlZm-1sBdnv8LczToZCO9HMXS93pgfqUx7Pm3tL5ZHU2rNw2SvYB77EiA35L_aMujX0wOOMiolioz4A6cZPApnj9GTqfJ_zJPXhTG5Y1OASy9sRAuiQ"
+        }
+      },
+      "POSTsignupUserAPIRequest": {
+        "type": "object",
+        "required": [
+          "firstName",
+          "lastName",
+          "roleId",
+          "email",
+          "countryCode",
+          "phone",
+          "password",
+          "gender",
+          "birthDate",
+          "address",
+          "stateId",
+          "cityId",
+          "zipcode",
+          "referCode",
+          "locationLatitude",
+          "locationLongitude"
+        ],
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 25,
+            "pattern": "^[a-zA-Z0-9]+$"
+          },
+          "lastName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 25,
+            "pattern": "^[a-zA-Z0-9]+$"
+          },
+          "roleId": {
+            "type": "integer",
+            "enum": [5, 6, 7]
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 8
+          },
+          "gender": {
+            "type": "string",
+            "enum": ["male", "female"]
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "country": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "idDocument": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "zipcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "cashCapacity": {
+            "type": "integer",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearSince": {
+            "type": "string",
+            "nullable": true
+          },
+          "referCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "digitalSignature": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "uploadedSignature": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "locationLatitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90,
+            "nullable": true
+          },
+          "locationLongitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180,
+            "nullable": true
+          }
+        }
+      },
+      "POSTForgetPasswordSendMailAPI": {
+        "type": "object",
+        "required": ["email"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        }
+      },
+      "POSTForgetPasswordResetAPI": {
+        "type": "object",
+        "required": ["token", "newPassword"],
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjMsImlhdCI6MTcyNTUxOTA1OSwiZXhwIjoxNzI1NjA1NDU5fQ.EXeZYjZsG_liKDAda8cYYYRyL5Gn4hj75EVoGYFHZ26Dqf497Lz-1ssMSnngFimSOD74sEcprD5DuviVPICxgqfZr5fT5f3KfcIqyIWHdwatEep5d88gcIBi7YMFXvh5Zhpvtl-jCcGyjM2UJyc3UPVBttKpseHZKu1kPBrfEykPipmTr7Mfs_OyvDTHW8AK0Epa-f8SaY0vSYGcq5QFaaM3lB_P8ZKas5OJlZm-1sBdnv8LczToZCO9HMXS93pgfqUx7Pm3tL5ZHU2rNw2SvYB77EiA35L_aMujX0wOOMiolioz4A6cZPApnj9GTqfJ_zJPXhTG5Y1OASy9sRAuiQ",
+          "newPassword": "user_password"
+        }
+      },
+      "POSTForgetPasswordResetAdminAPI": {
+        "type": "object",
+        "required": ["token", "newPassword", "confirmPassword"],
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjMsImlhdCI6MTcyNTUxOTA1OSwiZXhwIjoxNzI1NjA1NDU5fQ.EXeZYjZsG_liKDAda8cYYYRyL5Gn4hj75EVoGYFHZ26Dqf497Lz-1ssMSnngFimSOD74sEcprD5DuviVPICxgqfZr5fT5f3KfcIqyIWHdwatEep5d88gcIBi7YMFXvh5Zhpvtl-jCcGyjM2UJyc3UPVBttKpseHZKu1kPBrfEykPipmTr7Mfs_OyvDTHW8AK0Epa-f8SaY0vSYGcq5QFaaM3lB_P8ZKas5OJlZm-1sBdnv8LczToZCO9HMXS93pgfqUx7Pm3tL5ZHU2rNw2SvYB77EiA35L_aMujX0wOOMiolioz4A6cZPApnj9GTqfJ_zJPXhTG5Y1OASy9sRAuiQ",
+          "newPassword": "user_password",
+          "confirmPassword": "user_password"
+        }
+      },
+      "POSTUpdatePasswordAPI": {
+        "type": "object",
+        "required": ["password", "newPassword", "confirmPassword"],
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          }
+        },
+
+        "example": {
+          "password": "agency1234",
+          "newPassword": "user1234",
+          "confirmPassword": "user1234"
+        }
+      },
+      "PUTUpdateProfileImageAPI": {
+        "type": "object",
+        "required": ["profileImage"],
+        "properties": {
+          "profileImage": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "example": {
+          "profileImage": "https://example.com/profile-image.jpg"
+        }
+      },
+      "POSTAddToWalletAPI": {
+        "type": "object",
+        "required": ["amount"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "amount": 2000,
+          "note": "adding"
+        }
+      },
+      "POSTWithdrawWalletAPI": {
+        "type": "object",
+        "required": ["amount"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "amount": 2000,
+          "note": "withdrawing"
+        }
+      },
+      "POSTSendMoneyAPI": {
+        "type": "object",
+        "required": ["amount", "receiverId"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "receiverId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "amount": 100,
+          "note": "sent",
+          "receiverId": 3
+        }
+      },
+      "POSTSendMoneyToUnregisteredClientAPI": {
+        "type": "object",
+        "required": ["amount", "unRegisteredClientDetails", "pickupDetails"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "unRegisteredClientDetails": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          },
+          "pickupDetails": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "example": {
+          "amount": 120,
+          "note": "test",
+          "unRegisteredClientDetails": {
+            "name": "test",
+            "gender": "male",
+            "email": "afsdf@yopmail.com",
+            "phone": "24542154854",
+            "countryCode": "+1",
+            "address": "123 Main St",
+            "city": "New York",
+            "country": "2024-09-10",
+            "zipcode": "10001"
+          },
+          "type": "agency",
+          "address": "123 Main St",
+          "cityId": 1,
+          "stateId": 1,
+          "countryId": 1,
+          "zipcode": "10001"
+        }
+      },
+      "POSTSendMoneyFromUnregisteredClientToUnregisteredClientAPI": {
+        "type": "object",
+        "required": ["amount", "receiverDetails", "senderDetails", "pickupDetails"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "receiverDetails": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              },
+              "idDocument": {
+                "type": "string"
+              },
+              "anotherIdDocument": {
+                "type": "string"
+              }
+            }
+          },
+          "senderDetails": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          },
+          "pickupDetails": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["agency", "associate"]
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "POSTSendMoneyFromRegisteredClientToUnregisteredClientAPI": {
+        "type": "object",
+        "required": ["amount", "receiverDetails", "senderClientId", "pickupDetails"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "receiverDetails": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          },
+          "senderClientId": {
+            "type": "number"
+          },
+          "pickupDetails": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["agency", "associate"]
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "POSTSendInvitationAPI": {
+        "type": "object",
+        "required": ["email", "phone"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "example@email.com",
+          "phone": "1234567890"
+        }
+      },
+      "POSTCashReceiveFromClientAPI": {
+        "type": "object",
+        "required": ["amount", "cashReceivedFromId"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "cashReceivedFromId": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "amount": 500,
+          "cashReceivedFromId": 7,
+          "note": "cash transactions"
+        }
+      },
+      "POSTCashRequestByClientAPI": {
+        "type": "object",
+        "required": ["amount", "cashierId"],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "cashierId": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "amount": 500,
+          "cashierId": 7,
+          "note": "cash transactions"
+        }
+      },
+      "POSTApproveRequestAPI": {
+        "type": "object",
+        "required": ["cashTransactionId"],
+        "properties": {
+          "cashTransactionId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "cashTransactionId": 7
+        }
+      },
+      "PUTChangeRoleOfClientAPI": {
+        "type": "object",
+        "required": ["roleId", "reason"],
+        "properties": {
+          "roleId": {
+            "type": "number"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "POSTmageUploadAPI": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "The image file to upload"
+          }
+        },
+        "required": ["file"]
+      },
+      "POSTUpdateProfileAdminAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "meet",
+          "lastName": "patel",
+          "phone": "1234567890",
+          "countryCode": 91,
+          "address": "123 Main St",
+          "state": "CA",
+          "country": "USA",
+          "city": "Los Angeles",
+          "zipcode": "90001"
+        }
+      },
+      "POSTUpdateProfileClientAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "countryId": {
+            "type": "number"
+          },
+          "stateId": {
+            "type": "number"
+          },
+          "cityId": {
+            "type": "number"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "string"
+          },
+          "locationLatitude": {
+            "type": "string"
+          },
+          "locationLongitude": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "countryCode": "+1",
+          "gender": "male",
+          "birthDate": "1990-05-20",
+          "profileImage": "https://example.com/profile.jpg",
+          "idDocument": "https://example.com/id-document.jpg",
+          "address": "123 Main Street",
+          "countryId": 1,
+          "stateId": 1,
+          "cityId": 1,
+          "zipcode": "90001",
+          "roleId": 6,
+          "phone": null,
+          "locationLatitude": 34.052235,
+          "locationLongitude": -118.243683,
+          "digitalSignature": "https://example.com/digital-signature.jpg",
+          "uploadedSignature": "https://example.com/uploaded-signature.jpg"
+        }
+      },
+      "POSTAddUserAdminAPI": {
+        "type": "object",
+        "required": [
+          "firstName",
+          "lastName",
+          "roleId",
+          "email",
+          "countryCode",
+          "phone",
+          "password",
+          "gender",
+          "birthDate",
+          "countryId",
+          "profileImage",
+          "idDocument",
+          "digitalSignature",
+          "uploadedSignature",
+          "address",
+          "stateId",
+          "cityId",
+          "zipcode"
+        ],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "integer",
+            "enum": [6, 7]
+          },
+          "email": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string",
+            "enum": ["male", "female"]
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "countryId": {
+            "type": "integer"
+          },
+          "profileImage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "idDocument": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "stateId": {
+            "type": "integer",
+            "nullable": true
+          },
+          "cityId": {
+            "type": "integer",
+            "nullable": true
+          },
+          "zipcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "cashCapacity": {
+            "type": "integer",
+            "nullable": true
+          },
+
+          "digitalSignature": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "uploadedSignature": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "example": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "roleId": 6,
+          "email": "john.doe@example.com",
+          "countryCode": "+1",
+          "phone": "1234567890",
+          "password": "securePassword123",
+          "gender": "male",
+          "birthDate": "1990-01-01",
+          "countryId": 1,
+          "profileImage": "https://example.com/profile.jpg",
+          "idDocument": "https://example.com/id-document.pdf",
+          "digitalSignature": "https://example.com/digital-signature.png",
+          "uploadedSignature": "https://example.com/uploaded-signature.png",
+          "address": "123 Main St",
+          "stateId": 5,
+          "cityId": 10,
+          "zipcode": "12345",
+          "cashCapacity": 1000
+        }
+      },
+      "POSTAddAdminAPI": {
+        "type": "object",
+        "required": ["firstName", "lastName", "roleId", "countryCode", "phone", "email", "gender"],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "admin",
+          "lastName": "account",
+          "roleId": 2,
+          "countryCode": "+91",
+          "phone": "123456786",
+          "email": "demo@yopmail.com"
+        }
+      },
+      "POSTUserPasswordUpdateAPI": {
+        "type": "object",
+        "required": ["email", "newPassword", "confirmPassword"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "prakhar1@gho.com",
+          "newPassword": "password",
+          "confirmPassword": "password"
+        }
+      },
+      "PUTAdminPermissionUpdateAPI": {
+        "type": "object",
+        "required": ["roleId", "permissionId", "isGiving"],
+        "properties": {
+          "roleId": {
+            "type": "number"
+          },
+          "permissionId": {
+            "type": "number"
+          },
+          "isGiving": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "roleId": 1,
+          "permissionId": 3,
+          "isGiving": true
+        }
+      },
+      "POSTUserUpdateAdminAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string"
+          },
+          "isSuspend": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "stateId": {
+            "type": "integer"
+          },
+          "cityId": {
+            "type": "integer"
+          },
+          "countryId": {
+            "type": "integer"
+          },
+          "zipcode": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Akash",
+          "lastName": "Patel",
+          "roleId": 7,
+          "phone": "123456786",
+          "countryCode": "+91",
+          "gender": "male",
+          "birthDate": "01-01-2021",
+          "isSuspend": "1",
+          "profileImage": "https://example.com/profile.jpg",
+          "idDocument": "https://example.com/id-document.pdf",
+          "digitalSignature": "https://example.com/digital-signature.png",
+          "uploadedSignature": "https://example.com/uploaded-signature.png",
+          "address": "123 Main St",
+          "stateId": 5,
+          "cityId": 10,
+          "countryId": 1,
+          "zipcode": "12345"
+        }
+      },
+      "POSTAdminUpdateAdminAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "isSuspend": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Akash",
+          "lastName": "Patel",
+          "roleId": 2,
+          "phone": "123456786",
+          "countryCode": "+91",
+          "isSuspend": "1"
+        }
+      },
+      "POSTSendToUnregisteredClientAPI": {
+        "type": "object",
+        "required": ["amount", "note", "unRegisteredClientDetails"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "unRegisteredClientDetails": {
+            "type": "object",
+            "required": [
+              "firstName",
+              "lastName",
+              "email",
+              "countryCode",
+              "phone",
+              "gender",
+              "address",
+              "city",
+              "country",
+              "zipcode"
+            ],
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "example": {
+          "amount": 100.0,
+          "note": "Payment for services",
+          "unRegisteredClientDetails": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@example.com",
+            "countryCode": "+1",
+            "phone": "1234567890",
+            "gender": "Male",
+            "address": "123 Main St",
+            "city": "New York",
+            "country": "2024-09-10",
+            "zipcode": "10001"
+          }
+        }
+      },
+      "POSTAgencyTellerAccountAPI": {
+        "type": "object",
+        "required": [
+          "firstName",
+          "lastName",
+          "countryCode",
+          "phone",
+          "email",
+          "gender",
+          "birthDate",
+          "profileImage",
+          "idDocument",
+          "address",
+          "stateId",
+          "cityId",
+          "zipcode",
+          "countryId",
+          "cashCapacity",
+          "companyName",
+          "yearSince",
+          "digitalSignature",
+          "uploadedSignature"
+        ],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "stateId": {
+            "type": "integer"
+          },
+          "cityId": {
+            "type": "integer"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "countryId": {
+            "type": "integer"
+          },
+          "cashCapacity": {
+            "type": "number"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "yearSince": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Akash",
+          "lastName": "patel",
+          "countryCode": "+91",
+          "phone": "1234567186",
+          "email": "kkg@yopmail.com",
+          "gender": "male",
+          "birthDate": "01-01-2021",
+          "profileImage": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/profile-upload/1727949082671_blfopdcegc5.webp",
+          "idDocument": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf",
+          "address": "address",
+          "stateId": 105,
+          "cityId": 333,
+          "zipcode": "123456",
+          "countryId": 1,
+          "cashCapacity": 5000,
+          "companyName": "companyX",
+          "yearSince": "02-02-2021",
+          "digitalSignature": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf",
+          "uploadedSignature": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf"
+        }
+      },
+      "PUTAgencyTellerAccountAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "stateId": {
+            "type": "integer"
+          },
+          "cityId": {
+            "type": "integer"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "countryId": {
+            "type": "integer"
+          },
+          "cashCapacity": {
+            "type": "number"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "yearSince": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          },
+          "isSuspend": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Akash",
+          "lastName": "patel",
+          "countryCode": "+91",
+          "phone": "1234567186",
+          "email": "kkg@yopmail.com",
+          "gender": "male",
+          "birthDate": "01-01-2021",
+          "profileImage": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/profile-upload/1727949082671_blfopdcegc5.webp",
+          "idDocument": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf",
+          "address": "address",
+          "stateId": 105,
+          "cityId": 333,
+          "zipcode": "123456",
+          "countryId": 1,
+          "cashCapacity": 5000,
+          "companyName": "companyX",
+          "yearSince": "02-02-2021",
+          "digitalSignature": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf",
+          "uploadedSignature": "https://s3-cnp2152.s3.us-east-1.amazonaws.com/id-document/1724999571012_ptcqd4bumh.pdf",
+          "isSuspend": "0"
+        }
+      },
+      "PUTUpdateAgencyCommissionAPI": {
+        "type": "object",
+        "required": ["type", "commissionInPercentage", "agencyId"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["cashDeposit", "cashWithdrawal"]
+          },
+          "commissionInPercentage": {
+            "type": "number"
+          },
+          "agencyId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "type": "cashWithdrawal",
+          "commissionInPercentage": 10,
+          "agencyId": 1
+        }
+      },
+      "PUTChangeToDefaultAgencyAPI": {
+        "type": "object",
+        "required": ["type", "agencyId"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["cashDeposit", "cashWithdrawal"]
+          },
+          "agencyId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "type": "cashWithdrawal",
+          "agencyId": 1
+        }
+      },
+      "PUTUpdateDefaultCommissionsAPI": {
+        "type": "object",
+        "required": ["type", "commissionInPercentage"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["cashDeposit", "cashWithdrawal"]
+          },
+          "commissionInPercentage": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "type": "cashWithdrawal",
+          "commissionInPercentage": 10
+        }
+      },
+      "PUTUpdateLocationAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "locationLatitude": {
+            "type": "string"
+          },
+          "locationLongitude": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "address": "123 Main St",
+          "zipcode": "10001",
+          "city": "New York",
+          "state": "NY",
+          "country": "USA",
+          "locationLatitude": "40.7128",
+          "locationLongitude": "-74.0060"
+        }
+      },
+      "POSTMoneyTransferRegisteredToRegisteredOnlineAPI": {
+        "type": "object",
+        "required": ["amount", "note", "receiverClientId", "senderClientId"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "receiverClientId": {
+            "type": "number"
+          },
+          "senderClientId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "amount": 100.0,
+          "note": "Payment for services",
+          "receiverClientId": 1,
+          "senderClientId": 2
+        }
+      },
+      "POSTMoneyTransferRegisteredToRegisteredOfflineAPI": {
+        "type": "object",
+        "required": ["amount", "note", "receiverClientId", "senderClientId", "pickupDetails"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "receiverClientId": {
+            "type": "number"
+          },
+          "senderClientId": {
+            "type": "number"
+          },
+          "pickupDetails": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "example": {
+          "amount": 100.0,
+          "note": "Payment for services",
+          "receiverClientId": 1,
+          "senderClientId": 2,
+          "pickupDetails": {
+            "type": "associate",
+            "address": "123 Main St",
+            "cityId": 1,
+            "stateId": 1,
+            "countryId": 1,
+            "zipcode": "10001"
+          }
+        }
+      },
+      "POSTAgencyRegisterAPI": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "countryCode",
+          "phone",
+          "password",
+          "country",
+          "address",
+          "state",
+          "city",
+          "zipcode",
+          "cashCapacity",
+          "rechargeBudget",
+          "cashiers",
+          "representativeDetails",
+          "profileImage",
+          "idDocument",
+          "digitalSignature",
+          "uploadedSignature"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "cashCapacity": {
+            "type": "number"
+          },
+          "rechargeBudget": {
+            "type": "number"
+          },
+          "cashiers": {
+            "type": "number"
+          },
+          "representativeDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "birthDate": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "idNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Global Express Agency",
+          "email": "agencynew@yopmail.com",
+          "countryCode": "+1",
+          "phone": "12345678900",
+          "password": "abcd1234",
+          "country": "United States",
+          "address": "123 Business Street, Suite 456",
+          "state": "California",
+          "city": "San Francisco",
+          "zipcode": "94105",
+          "cashCapacity": 100000,
+          "rechargeBudget": 50000,
+          "cashiers": 5,
+          "representativeDetails": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "gender": "male",
+            "birthDate": "1980-01-01",
+            "phone": "9876543210",
+            "email": "john.doe@globalexpress.com",
+            "idNumber": "ID12345678"
+          },
+          "profileImage": "https://example.com/agency-profile.jpg",
+          "idDocument": "https://example.com/agency-id-doc.pdf",
+          "digitalSignature": "https://example.com/digital-signature.png",
+          "uploadedSignature": "https://example.com/uploaded-signature.png"
+        }
+      },
+      "POSTAgencyUpdateAPI": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+
+          "countryCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+
+          "country": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          },
+          "cashCapacity": {
+            "type": "number"
+          },
+          "rechargeBudget": {
+            "type": "number"
+          },
+          "cashiers": {
+            "type": "number"
+          },
+          "representativeDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "birthDate": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "idNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "idDocument": {
+            "type": "string"
+          },
+          "digitalSignature": {
+            "type": "string"
+          },
+          "uploadedSignature": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Global Express Agency",
+          "countryCode": "+1",
+          "phone": "12345678900",
+          "country": "United States",
+          "address": "123 Business Street, Suite 456",
+          "state": "California",
+          "city": "San Francisco",
+          "zipcode": "94105",
+          "cashCapacity": 100000,
+          "rechargeBudget": 50000,
+          "cashiers": 5,
+          "representativeDetails": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "gender": "male",
+            "birthDate": "1980-01-01",
+            "phone": "9876543210",
+            "email": "john.doe@globalexpress.com",
+            "idNumber": "ID12345678"
+          },
+          "profileImage": "https://example.com/agency-profile.jpg",
+          "idDocument": "https://example.com/agency-id-doc.pdf",
+          "digitalSignature": "https://example.com/digital-signature.png",
+          "uploadedSignature": "https://example.com/uploaded-signature.png"
+        }
+      },
+      "POSTSendOtpAPI": {
+        "type": "object",
+        "required": ["phone", "countryCode"],
+        "properties": {
+          "phone": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          }
+        }
+      },
+      "POSTVerifyOtpAPI": {
+        "type": "object",
+        "required": ["otp", "id"],
+        "properties": {
+          "otp": {
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      },
+      "POSTLocationPointsAPI": {
+        "type": "object",
+        "required": ["locationLatitude", "locationLongitude"],
+        "properties": {
+          "locationLatitude": {
+            "type": "number"
+          },
+          "locationLongitude": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "locationLatitude": 40.7128,
+          "locationLongitude": -74.006
+        }
+      },
+      "PUTUpdateAvailabilityAPI": {
+        "type": "object",
+        "required": ["availabilityArr"],
+        "properties": {
+          "availabilityArr": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "enum": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday",
+                    "sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "availabilityArr": [
+            {
+              "day": "monday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "tuesday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "wednesday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "thursday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "friday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "saturday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            },
+            {
+              "day": "sunday",
+              "startTime": "09:00",
+              "endTime": "18:00"
+            }
+          ]
+        }
+      },
+      "POSTValidateCashTransactionAPI": {
+        "type": "object",
+        "required": ["id", "uniqueCode"],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "uniqueCode": {
+            "type": "string"
+          }
+        }
+      },
+      "POSTRechargeClientWalletByAssociateAPI": {
+        "type": "object",
+        "required": ["amount", "note", "clientId"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "number"
+          }
+        }
+      },
+      "POSTTransactionClientWalletToWalletAPI": {
+        "type": "object",
+        "required": ["amount", "note", "isSenderAgency", "isReceiverAgency"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "senderClientId": {
+            "type": "number"
+          },
+          "receiverClientId": {
+            "type": "number"
+          },
+          "isSenderAgency": {
+            "type": "boolean"
+          },
+          "isReceiverAgency": {
+            "type": "boolean"
+          },
+          "receiverDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "roleId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "documentTypeId": {
+                "type": "number"
+              },
+              "documentNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "senderDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "roleId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "POSTTransactionAgencyWalletToWalletAPI": {
+        "type": "object",
+        "required": ["amount", "note", "isSenderAgency", "isReceiverAgency"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "senderClientId": {
+            "type": "number"
+          },
+          "receiverClientId": {
+            "type": "number"
+          },
+          "isSenderAgency": {
+            "type": "boolean"
+          },
+          "isReceiverAgency": {
+            "type": "boolean"
+          },
+          "receiverDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "roleId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              },
+              "documentTypeId": {
+                "type": "number"
+              },
+              "documentNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "senderDetails": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "cityId": {
+                "type": "number"
+              },
+              "roleId": {
+                "type": "number"
+              },
+              "countryId": {
+                "type": "number"
+              },
+              "stateId": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "POSTTransactionWithdrawPendingTransactionToWalletAPI": {
+        "type": "object",
+        "required": ["documentTypeId", "documentNumber", "uniqueCode"],
+        "properties": {
+          "documentTypeId": {
+            "type": "number"
+          },
+          "documentNumber": {
+            "type": "number"
+          },
+          "uniqueCode": {
+            "type": "string"
+          }
+        }
+      },
+      "POSTAddNewCurrencyExchangeAPI": {
+        "type": "object",
+        "required": ["countryId", "commissionInPercentage", "exchangeRate"],
+        "properties": {
+          "countryId": {
+            "type": "number"
+          },
+          "commissionInPercentage": {
+            "type": "number"
+          },
+          "exchangeRate": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "countryId": 1,
+          "commissionInPercentage": 10,
+          "exchangeRate": 1.2
+        }
+      },
+      "POSTUpdateCurrencyExchangeAPI": {
+        "type": "object",
+        "required": ["id", "commissionInPercentage", "exchangeRate"],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "commissionInPercentage": {
+            "type": "number"
+          },
+          "exchangeRate": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "id": 1,
+          "commissionInPercentage": 10,
+          "exchangeRate": 1.2
+        }
+      },
+      "POSTDeleteCurrencyExchangeAPI": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "id": 1
+        }
+      },
+      "POSTRechargeClientWalletAPI": {
+        "type": "object",
+        "required": ["amount", "note", "clientId"],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "amount": 100,
+          "note": "Recharge for client",
+          "clientId": 1
+        }
+      },
+      "POSTClientDocumentTypeAPI": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "document_type": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "name": "Driving Licence",
+          "description": "Two wheeler and four wheeler!",
+          "document_type": "ID Proof",
+          "required": false
+        }
+      },
+      "PUTUpdateDocumentTypeAPI": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "document_type": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "name": "Driving Licence",
+          "description": "Two wheeler and four wheeler!",
+          "document_type": "ID Proof",
+          "required": false
+        }
+      }
+    },
+
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "basic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Client and Associate Auth"
+    },
+    {
+      "name": "Client Availability"
+    },
+    {
+      "name": "Client Dashboard"
+    },
+    {
+      "name": "Accounts Listing"
+    },
+    {
+      "name": "Transactions"
+    },
+    {
+      "name": "Invitation"
+    },
+    {
+      "name": "Agency and Teller Auth"
+    },
+    {
+      "name": "Agency Availability"
+    },
+    {
+      "name": "Agency Dashboard"
+    },
+    {
+      "name": "Agency Teller Account"
+    },
+    {
+      "name": "Account Search Of Clients (Agency)"
+    },
+    {
+      "name": "Admin and Operator Auth"
+    },
+    {
+      "name": "Admin Dashboard"
+    },
+    {
+      "name": "Client Management By Admin"
+    },
+    {
+      "name": "Admin Accounts Management By Admin"
+    },
+    {
+      "name": "Permission Management By Admin"
+    },
+    {
+      "name": "Geo Location Management By Admin"
+    },
+    {
+      "name": "Recharge Management By Admin"
+    },
+    {
+      "name": "Commission Management By Admin"
+    },
+    {
+      "name": "Currency Exchange Management By Admin"
+    },
+    {
+      "name": "Common"
+    },
+    {
+      "name": "Documents"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+public/images
+public/chatUploadFile
+public/serviceUploadFile
+public/cmsUploadFile
+public/transcriptUploadFile
+info.log
+.env

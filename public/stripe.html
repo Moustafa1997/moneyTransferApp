@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet Recharge</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f7f8f9;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        color: #1a1f36;
+        font-size: 24px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #1a1f36;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #e3e8ee;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.2s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #6772e5;
+      }
+
+      button {
+        background-color: #5469d4;
+        color: white;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #4a5cd1;
+      }
+
+      button:disabled {
+        background-color: #e3e8ee;
+        cursor: not-allowed;
+      }
+
+      .error {
+        color: #df1b41;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      .success {
+        color: #0d9488;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      #card-element {
+        padding: 12px;
+        border: 1px solid #e3e8ee;
+        border-radius: 6px;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recharge Wallet</h1>
+      <form id="payment-form">
+        <div class="form-group">
+          <label for="amount">Amount (USD)</label>
+          <input type="number" id="amount" min="1" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" required />
+        </div>
+        <div class="form-group">
+          <label>Card Details</label>
+          <div id="card-element"></div>
+          <div id="card-errors" class="error" role="alert"></div>
+        </div>
+        <button type="submit" id="submit-button">
+          <span id="button-text">Pay Now</span>
+        </button>
+        <div id="payment-message" class="success"></div>
+      </form>
+    </div>
+    <script nonce="<unique_nonce_value>">
+      // Initialize Stripe
+      const stripe = Stripe(
+        'pk_test_51OG6u1EIZ0pW75sWOr5ubuPKXJI4p9YW84ngEwJ8XHSSRB3n7YsWqQEREHqRADnqfi3V0AiM9dtYzsUyjO4ZmU6T00ibUSAziF'
+      );
+      const elements = stripe.elements();
+
+      // Create card Element
+      const cardElement = elements.create('card');
+      cardElement.mount('#card-element');
+
+      // Handle form submission
+      const form = document.getElementById('payment-form');
+      const submitButton = document.getElementById('submit-button');
+      const messageDiv = document.getElementById('payment-message');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        // Disable the submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Processing...';
+
+        const amount = document.getElementById('amount').value;
+        const description = document.getElementById('description').value;
+
+        try {
+          // First API call to initiate payment
+          const response = await fetch(
+            'http://localhost:4100/api/agency/recharge-wallet-from-bank',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization:
+                  'Bearer ' +
+                  'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjE0LCJpYXQiOjE3MzQ2MTEwODksImV4cCI6MTczNzIwMzA4OX0.OkSgXjtvFrSHmg5tD5QMeoUlHXu7rItCgrCju4FAS6yTBHz5EIuLRB2cVy9cp8cbDYhozydkT-wDDL5B9NFhgT8KUOPeaiEAWaoH6yZJbXT3kyTuYpkY6lTgSGkK0b4b_UtP68-InUDvBfO9evHioIbyVisgY4xNsi2EoxVLTo1NO8dfLnuKbT0X_6RRrb2Sj2VEbSv_vGIXdoUPqEYtYHYWuel9kUadV5rnURIhKHPlZODUM10IstusU0E2ZuTRUB5FQKs1sbuttzK2U-E5gEcJ0gGR_OO_efViSo10D7E2M5ysC2O2cO7a3onWKz_T9BLx4YIKFzHFjkjhSF3umA'
+              },
+              body: JSON.stringify({
+                amount: parseFloat(amount),
+                description,
+                currency: 'usd',
+                purpose: 'wallet_recharge'
+              })
+            }
+          );
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.message || 'Something went wrong');
+          }
+
+          // Confirm the payment with Stripe
+          const { error, paymentIntent } = await stripe.confirmCardPayment(data.data.clientSecret, {
+            payment_method: {
+              card: cardElement
+            }
+          });
+
+          if (error) {
+            throw new Error(error.message);
+          }
+
+          // Verify payment with backend
+          const verifyResponse = await fetch(
+            'http://localhost:4100/api/agency/comfirm-wallet-recharge',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization:
+                  'Bearer ' +
+                  'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjE0LCJpYXQiOjE3MzQ2MTEwODksImV4cCI6MTczNzIwMzA4OX0.OkSgXjtvFrSHmg5tD5QMeoUlHXu7rItCgrCju4FAS6yTBHz5EIuLRB2cVy9cp8cbDYhozydkT-wDDL5B9NFhgT8KUOPeaiEAWaoH6yZJbXT3kyTuYpkY6lTgSGkK0b4b_UtP68-InUDvBfO9evHioIbyVisgY4xNsi2EoxVLTo1NO8dfLnuKbT0X_6RRrb2Sj2VEbSv_vGIXdoUPqEYtYHYWuel9kUadV5rnURIhKHPlZODUM10IstusU0E2ZuTRUB5FQKs1sbuttzK2U-E5gEcJ0gGR_OO_efViSo10D7E2M5ysC2O2cO7a3onWKz_T9BLx4YIKFzHFjkjhSF3umA'
+              },
+              body: JSON.stringify({
+                paymentIntentId: paymentIntent.id
+              })
+            }
+          );
+
+          const verifyData = await verifyResponse.json();
+
+          if (!verifyResponse.ok) {
+            throw new Error(verifyData.message || 'Verification failed');
+          }
+
+          messageDiv.textContent = 'Payment successful! Your wallet has been recharged.';
+          messageDiv.classList.remove('error');
+          messageDiv.classList.add('success');
+          form.reset();
+          cardElement.clear();
+        } catch (error) {
+          messageDiv.textContent = error.message;
+          messageDiv.classList.remove('success');
+          messageDiv.classList.add('error');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Pay Now';
+        }
+      });
+
+      // Handle card Element errors
+      cardElement.addEventListener('change', ({ error }) => {
+        const displayError = document.getElementById('card-errors');
+        if (error) {
+          displayError.textContent = error.message;
+        } else {
+          displayError.textContent = '';
+        }
+      });
+    </script>
+  </body>
+</html>
