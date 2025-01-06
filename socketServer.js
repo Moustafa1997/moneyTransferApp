@@ -243,6 +243,7 @@ async function getOrCreateChat(senderId, receiverId, roomId) {
         returning: true
       }
     );
+    console.log("chattttt",chat)
   }
 
   // Double check we have an id
