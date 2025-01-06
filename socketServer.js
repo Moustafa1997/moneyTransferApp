@@ -218,30 +218,52 @@ async function formatChatList(chats, userId) {
 }
 
  async function getOrCreateChat(senderId, receiverId, roomId) {
+  const transaction = await sequelize.transaction();
+  
   try {
     const [user1, user2] = await Promise.all([
-      Clients.findOne({ where: { id: senderId } }),
-      Clients.findOne({ where: { id: receiverId } })
+      Clients.findOne({ where: { id: senderId }, transaction }),
+      Clients.findOne({ where: { id: receiverId }, transaction })
     ]);
+
+    if (!user1 || !user2) {
+      throw new Error('One or both users not found');
+    }
 
     const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
 
-    // Use findOrCreate instead of manual find and create
-    const [chat, created] = await Chat.findOrCreate({ 
+    const [chat, created] = await Chat.findOrCreate({
       where: { name: roomId },
       defaults: {
         searchName,
         type: 'private'
-      }
+      },
+      transaction,
+      returning: true // Ensure the full model is returned
     });
 
-    // Ensure we're returning a chat instance with an ID
+    // Verify the chat has an ID before proceeding
+    if (!chat.id) {
+      throw new Error('Chat created without ID');
+    }
+
+    // Log the chat details for debugging
+    console.log('Created/Found Chat:', {
+      id: chat.id,
+      name: chat.name,
+      searchName: chat.searchName,
+      created: created
+    });
+
+    await transaction.commit();
     return chat;
   } catch (error) {
-    console.error('Error getting or creating chat:', error);
+    await transaction.rollback();
+    console.error('Error in getOrCreateChat:', error);
     throw error;
   }
 }
+
 async function createMessage(senderId, receiverId, content, chatId) {
   return Message.create({
     sender_id: senderId,
