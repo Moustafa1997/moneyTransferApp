@@ -7,7 +7,7 @@ const { Op } = require('sequelize');
 
 module.exports = (httpServer) => {
   const io = socketIo(httpServer, {
- cors: {
+    cors: {
       origin: [
         'https://localhost:3000',
         'http://localhost:3000',
@@ -94,7 +94,6 @@ module.exports = (httpServer) => {
       try {
         const roomId = [userId, receiverId].sort().join('-');
         const chat = await getOrCreateChat(userId, receiverId, roomId);
-        console.log("chatttttttt",chat)
         const newMessage = await createMessage(userId, receiverId, content, chat.id);
 
         const messageData = {
@@ -192,79 +191,73 @@ async function searchUserChats(query, userId) {
 }
 
 async function formatChatList(chats, userId) {
-  try {
-    return Promise.all(
-      chats.map(async (chat) => {
-        const participants = chat.name.split('-');
-        const otherUserId = participants.find((id) => id != userId);
-        const otherUser = await Clients.findByPk(otherUserId);
+  return Promise.all(
+    chats.map(async (chat) => {
+      const participants = chat.name.split('-');
+      const otherUserId = participants.find((id) => id != userId);
+      const otherUser = await Clients.findByPk(otherUserId);
 
-        return {
-          chatId: chat.id,
-          chatName: otherUser ? `${otherUser.firstName} ${otherUser.lastName}` : 'Unknown User',
-          receiverId: otherUserId,
-          chatStatus: otherUser?.chatStatus || 'offline',
-          lastSeen: otherUser?.lastSeen || null,
-          profileImage: otherUser?.profileImage || '/default-avatar.png',
-          createdAt: chat.created_at,
-          updatedAt: chat.updated_at
-        };
-      })
-    );
-  } catch (error) {
-    console.error('Error formatting chat list:', error);
-    throw error;
-  }
+      return {
+        chatId: chat.id,
+        chatName: otherUser ? `${otherUser.firstName} ${otherUser.lastName}` : 'Unknown User',
+        receiverId: otherUserId,
+        chatStatus: otherUser?.chatStatus || 'offline',
+        lastSeen: otherUser?.lastSeen || null,
+        profileImage: otherUser?.profileImage || '/default-avatar.png',
+        createdAt: chat.created_at,
+        updatedAt: chat.updated_at
+      };
+    })
+  );
 }
 
- async function getOrCreateChat(senderId, receiverId, roomId) {
-  const transaction = await sequelize.transaction();
-  
-  try {
-    const [user1, user2] = await Promise.all([
-      Clients.findOne({ where: { id: senderId }, transaction }),
-      Clients.findOne({ where: { id: receiverId }, transaction })
-    ]);
+async function getOrCreateChat(senderId, receiverId, roomId) {
+  const [user1, user2] = await Promise.all([
+    Clients.findOne({ where: { id: senderId } }),
+    Clients.findOne({ where: { id: receiverId } })
+  ]);
 
-    if (!user1 || !user2) {
-      throw new Error('One or both users not found');
-    }
+  if (!user1 || !user2) {
+    throw new Error('One or both users not found');
+  }
 
-    const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
+  const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
 
-    const [chat, created] = await Chat.findOrCreate({
-      where: { name: roomId },
-      defaults: {
+  // First try to find the existing chat
+  let chat = await Chat.findOne({
+    where: { name: roomId },
+    // Ensure we get back all fields
+    raw: false
+  });
+
+  // If no chat exists, create a new one
+  if (!chat) {
+    chat = await Chat.create(
+      {
+        name: roomId,
         searchName,
         type: 'private'
       },
-      transaction,
-      returning: true // Ensure the full model is returned
-    });
-
-    // Verify the chat has an ID before proceeding
-    if (!chat.id) {
-      throw new Error('Chat created without ID');
-    }
-
-    // Log the chat details for debugging
-    console.log('Created/Found Chat:', {
-      id: chat.id,
-      name: chat.name,
-      searchName: chat.searchName,
-      created: created
-    });
-
-    await transaction.commit();
-    return chat;
-  } catch (error) {
-    await transaction.rollback();
-    console.error('Error in getOrCreateChat:', error);
-    throw error;
+      {
+        // Return the full instance
+        returning: true
+      }
+    );
   }
+
+  // Double check we have an id
+  if (!chat?.id) {
+    throw new Error('Failed to create or find chat - no chat ID returned');
+  }
+
+  return chat;
 }
 
 async function createMessage(senderId, receiverId, content, chatId) {
+  if (!chatId) {
+    throw new Error('Chat ID is required to create a message');
+  }
+
   return Message.create({
     sender_id: senderId,
     receiver_id: receiverId,
@@ -295,6 +288,6 @@ async function handleMessageDeletion(message, deleteForAll, roomId, io, userId) 
 }
 
 function handleError(socket, message, error) {
-  console.log("errrrrrrrrrrror",message, error);
+  console.error(message, error);
   socket.emit('error', { message });
 }
