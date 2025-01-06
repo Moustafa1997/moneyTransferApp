@@ -266,6 +266,6 @@ async function handleMessageDeletion(message, deleteForAll, roomId, io, userId) 
 }
 
 function handleError(socket, message, error) {
-  console.error(message, error);
+  console.log("errrrrrrrrrrror",message, error);
   socket.emit('error', { message });
 }
