@@ -217,7 +217,7 @@ async function formatChatList(chats, userId) {
   }
 }
 
-async function getOrCreateChat(senderId, receiverId, roomId) {
+ async function getOrCreateChat(senderId, receiverId, roomId) {
   try {
     const [user1, user2] = await Promise.all([
       Clients.findOne({ where: { id: senderId } }),
@@ -226,18 +226,22 @@ async function getOrCreateChat(senderId, receiverId, roomId) {
 
     const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
 
-    let chat = await Chat.findOne({ where: { name: roomId } });
-    if (!chat) {
-      chat = await Chat.create({ name: roomId, searchName });
-    }
+    // Use findOrCreate instead of manual find and create
+    const [chat, created] = await Chat.findOrCreate({ 
+      where: { name: roomId },
+      defaults: {
+        searchName,
+        type: 'private'
+      }
+    });
 
+    // Ensure we're returning a chat instance with an ID
     return chat;
   } catch (error) {
     console.error('Error getting or creating chat:', error);
     throw error;
   }
 }
-
 async function createMessage(senderId, receiverId, content, chatId) {
   return Message.create({
     sender_id: senderId,
