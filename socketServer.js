@@ -1,19 +1,17 @@
 'use strict';
-const socketIo = require('socket.io');
+const { Server } = require('socket.io');
 const { verifySocketToken } = require('./app/services/jwtSign');
 const { Message, Chat } = require('./app/models');
 const Clients = require('./app/models').clients;
 const { Op } = require('sequelize');
 
 module.exports = (httpServer) => {
-  const io = socketIo(httpServer, {
+  const io = new Server(httpServer, {
     cors: {
       origin: [
         'https://localhost:3000',
         'http://localhost:3000',
-        'http://localhost:4100',
-        'https://cnp2152.developer24x7.com',
-        'https://moneytransferapp-development.up.railway.app'
+        'https://cnp2152.developer24x7.com'
       ],
       methods: ['GET', 'POST', 'OPTIONS', 'PATCH', 'PUT', 'DELETE'],
       allowedHeaders: ['*'],
@@ -217,48 +215,21 @@ async function getOrCreateChat(senderId, receiverId, roomId) {
     Clients.findOne({ where: { id: receiverId } })
   ]);
 
-  if (!user1 || !user2) {
-    throw new Error('One or both users not found');
-  }
-
   const searchName = `${user1.firstName} ${user1.lastName} - ${user2.firstName} ${user2.lastName}`;
 
-  // First try to find the existing chat
-  let chat = await Chat.findOne({
-    where: { name: roomId },
-    // Ensure we get back all fields
-    raw: false
-  });
-
-  // If no chat exists, create a new one
+  let chat = await Chat.findOne({ where: { name: roomId } });
   if (!chat) {
-    chat = await Chat.create(
-      {
-        name: roomId,
-        searchName,
-        type: 'private'
-      },
-      {
-        // Return the full instance
-        returning: true
-      }
-    );
-    console.log("chattttt",chat)
+    chat = await Chat.create({ name: roomId, searchName });
   }
 
-  // Double check we have an id
   if (!chat?.id) {
-    throw new Error('Failed to create or find chat - no chat ID returned');
+    throw new Error('Failed to create or find chat');
   }
 
   return chat;
 }
 
 async function createMessage(senderId, receiverId, content, chatId) {
-  if (!chatId) {
-    throw new Error('Chat ID is required to create a message');
-  }
-
   return Message.create({
     sender_id: senderId,
     receiver_id: receiverId,
